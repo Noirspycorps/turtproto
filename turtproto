@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
-bash loading
-clear
+sudo apt install browsh
+sudo apt install mapscii
+sudo apt install gemini
 echo "Welcome to Turtle Terminal with Noirspy! Type 'exit' to quit." | lolcat
 neofetch
 while true; do
@@ -14,13 +15,7 @@ while true; do
         sudo
       echo "Noirspy base command entered. Try 'get', 'noirspyup', 'noirspyug', etc."
       ;;
-        noircable)
-                mpv https://iptv-org.github.io/iptv/countries/us.m3u
-                ;;
-        campfire)
-                cacafire
-                ;;
-
+    
         web)
         browsh
 # Enable mouse tracking (X11 mode)
@@ -48,15 +43,10 @@ echo -ne "\e[?1000h"
         mapscii)
                 mapscii
                 ;;
-                lsall)
- bash ls
-                ;;
                 ls)
                 ls
                 ;;
-                lsapps)
-                bash lsapps
-                ;;
+                
     get)
       sudo apt install $args
       ;;
