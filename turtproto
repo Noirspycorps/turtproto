@@ -1,0 +1,121 @@
+#!/bin/bash
+clear
+bash loading
+clear
+echo "Welcome to Turtle Terminal with Noirspy! Type 'exit' to quit." | lolcat
+neofetch
+while true; do
+  read -p "noirspy> " input
+  cmd=$(echo "$input" | awk '{print $1}')
+  args=$(echo "$input" | cut -d' ' -f2-)
+
+  case "$cmd" in
+    noirspy)
+        sudo
+      echo "Noirspy base command entered. Try 'get', 'noirspyup', 'noirspyug', etc."
+      ;;
+        noircable)
+                mpv https://iptv-org.github.io/iptv/countries/us.m3u
+                ;;
+        campfire)
+                cacafire
+                ;;
+
+        web)
+        browsh
+# Enable mouse tracking (X11 mode)
+echo -ne "\e[?1000h"
+
+        ;;
+        l-)
+                if [[ -z "$args" ]]; then
+                echo "Usage:noirlaunch [appname]"
+                break
+                fi
+
+                 if command -v "$args" &> /dev/null; then
+    echo "Launching $args..."
+    "$args" & disown
+  elif which "$args" &> /dev/null; then
+    echo "Launching $args..."
+    "$args" & disown
+  else
+    echo "❌ App '$args' not found. Try installing it with: sudo apt install $args"
+  fi
+  ;;
+
+
+        mapscii)
+                mapscii
+                ;;
+                lsall)
+ bash ls
+                ;;
+                ls)
+                ls
+                ;;
+                lsapps)
+                bash lsapps
+                ;;
+    get)
+      sudo apt install $args
+      ;;
+        gemini)
+                gemini
+                ;;
+        noirsn)
+                sudo snap install
+;;
+    noirspyup)
+      sudo apt update
+      ;;
+    noirspyug)
+      sudo apt upgrade
+      ;;
+    rm)
+      sudo apt remove $args
+      ;;
+clear)
+      clear
+      ;;
+        help)
+                echo "help - This help script"
+                echo "noirspy - sudo"
+                echo "get - Install a specific package. Ex: get [Package]"
+                echo "noirspyup - Update packages"
+                echo "noirspyug - Upgrade packages"
+                echo "rm - Remove a package. Ex: rm [Package]"
+                echo "clear - Clear the terminal"
+                echo "exit - Leave the Turtle Terminal"
+                echo "mapscii - Map app."
+                echo "noircable - Launch live TV with mpv."
+                echo "noirsn - Install snap apps."
+                echo "l- - Launch an app/program."
+                echo "campfire - Launch a warm fire place with a program with a questionable name, cacafire."
+                echo "ls - list a directory, lsall - list the entire system packages & more, and lsapps - list your app>                echo "web - Use the browsh browser with Firefox."
+                ;;
+    hawk)
+      echo "🕒 Time: $(date '+%A, %B %d %Y %H:%M:%S')"
+      echo "🌦️ Weather:"
+      curl -s 'wttr.in/?format=3'
+      echo "Other forecasts:"
+ curl wttr.in
+      if [ -d /sys/class/power_supply ]; then
+        battery=$(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null)
+        echo "🔋 Battery: ${battery}%"
+        bash coolbattery
+      else
+        echo "🔋 Battery: Not available"
+      fi
+      ;;
+    exit)
+      echo "Bye Bye!"
+      break
+      ;;
+    *)
+      echo "Unknown noirspy command: $cmd"
+      ;;
+  esac
+done
+
+
