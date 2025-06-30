@@ -3,7 +3,7 @@ clear
 sudo apt install browsh
 sudo apt install mapscii
 sudo apt install gemini
-echo "Welcome to Turtle Terminal with Noirspy! Type 'exit' to quit." | lolcat
+echo "Welcome to Turtle Terminal with Noirspy! Type 'exit' to quit."
 neofetch
 while true; do
   read -p "noirspy> " input
